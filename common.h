@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 02:29:14
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-19 14:25:23
+ * @LastEditTime : 2021-08-19 14:40:10
  * @Description  : file content
  */
 #include <iostream>
@@ -14,6 +14,7 @@
 #include <climits>
 #include <cstdlib>
 #include <string>
+#include <cstring>
 #include <algorithm>
 
 // Boost library

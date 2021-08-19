@@ -1,6 +1,6 @@
 CC=g++
 IDIR=.
-CFLAGS=-I$(IDIR) -O2
+CFLAGS=-I$(IDIR) -O2 -std=c++17
 
 DEPS = \
 	common.h \
