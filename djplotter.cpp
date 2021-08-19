@@ -2,10 +2,11 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 02:33:23
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-19 06:37:50
+ * @LastEditTime : 2021-08-19 14:31:24
  * @Description  : file content
  */
 #include "common.h"
+#include "plotter.h"
 
 namespace po = boost::program_options;
 
@@ -44,5 +45,5 @@ int main(int argc, char **argv) {
         height = vm["height"].as<int>();
     }
 
-    
+    Plotter plotter(input_filename, texture_filename, width, height, radius_level);
 }

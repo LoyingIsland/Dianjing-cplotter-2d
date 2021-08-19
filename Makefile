@@ -7,7 +7,7 @@ DEPS = \
 	lodepng.h
 
 LIBS=-lm -lboost_program_options
-OBJ=lodepng.o djplotter.o
+OBJ=lodepng.o plotter.o djplotter.o
 
 %.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
