@@ -1,3 +1,4 @@
 djplotter
 djplotter.o
 lodepng.o
+plotter.o
