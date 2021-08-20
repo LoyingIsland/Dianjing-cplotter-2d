@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 06:38:23
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-19 17:01:25
+ * @LastEditTime : 2021-08-20 13:28:04
  * @Description  : file content
  */
 #include "common.h"
@@ -89,6 +89,8 @@ class radius_texture_tp : public texture_tp {
 
 class Plotter {
     private:
+    // TODO: add options for the program
+    const double opacity = 0.75;
     // TODO: Build texture system
     int width, height;
     std::vector<color_tp> image_buffer;
@@ -99,4 +101,5 @@ class Plotter {
     
     public:
     Plotter(std::string __filename, std::string __texture, int __width, int __height, double __radius);
+    void Generate();
 };

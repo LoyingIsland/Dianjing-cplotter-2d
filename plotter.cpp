@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 06:47:20
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-19 17:43:34
+ * @LastEditTime : 2021-08-20 13:36:02
  * @Description  : file content
  */
  #include "plotter.h"
@@ -14,12 +14,11 @@ Plotter::Plotter(std::string __filename, std::string __texture, int __width, int
     radius = __radius;
     
     // TODO: add options for the program
-    const double opacity = 0.75;
     const color_tp background_color(255,255,255);
 
     // Initialize the image buffer
     image_buffer.clear();
-    image_buffer.resize(width * height, color_tp(255, 255, 255));
+    image_buffer.resize(width * height, background_color);
 
     // Read file to build particle list
     particles_list.clear();
@@ -80,5 +79,30 @@ Plotter::Plotter(std::string __filename, std::string __texture, int __width, int
         std::ifstream texture_file(__texture);
         // TODO : to be done
         // TODO : generate the texture from texture file
+    }
+}
+
+void Plotter::Generate() {
+    double begin_x_cord, begin_y_cord;
+    double end_x_cord, end_y_cord;
+
+    begin_x_cord = std::numeric_limits<double>::max();
+    begin_y_cord = std::numeric_limits<double>::max();
+    end_x_cord = std::numeric_limits<double>::min();
+    end_y_cord = std::numeric_limits<double>::min();
+
+    for (particle_tp particle_item : particles_list) {
+        if (particle_item.x <= begin_x_cord) {
+            begin_x_cord = particle_item.x;
+        }
+        if (particle_item.x >= end_x_cord) {
+            end_x_cord = particle_item.x;
+        }
+        if (particle_item.y <= begin_y_cord) {
+            begin_y_cord = particle_item.y;
+        }
+        if (particle_item.y >= end_y_cord) {
+            end_y_cord = particle_item.y;
+        }
     }
 }
