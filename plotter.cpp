@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 06:47:20
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-20 13:36:02
+ * @LastEditTime : 2021-08-20 13:39:06
  * @Description  : file content
  */
  #include "plotter.h"
@@ -83,6 +83,7 @@ Plotter::Plotter(std::string __filename, std::string __texture, int __width, int
 }
 
 void Plotter::Generate() {
+    // Fix coordination, from double -> int
     double begin_x_cord, begin_y_cord;
     double end_x_cord, end_y_cord;
 
@@ -104,5 +105,12 @@ void Plotter::Generate() {
         if (particle_item.y >= end_y_cord) {
             end_y_cord = particle_item.y;
         }
+    }
+
+    // Generate image buffer
+    for (particle_tp particle_item : particles_list) {
+        int x = (int)((particle_item.x - begin_x_cord) / (end_x_cord - begin_x_cord));
+        int y = (int)((particle_item.y - begin_y_cord) / (end_y_cord - begin_y_cord));
+        
     }
 }
