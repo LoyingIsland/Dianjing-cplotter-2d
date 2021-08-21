@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 02:33:23
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-19 14:31:24
+ * @LastEditTime : 2021-08-21 23:02:25
  * @Description  : file content
  */
 #include "common.h"
@@ -33,17 +33,24 @@ int main(int argc, char **argv) {
 
     if (vm.count("help")) {
         std::cout << desc << std::endl;
-    } else if (vm.count("file")) {
+    } 
+    if (vm.count("file")) {
         input_filename = vm["file"].as<std::string>();
-    } else if (vm.count("texture")) {
+    } 
+    if (vm.count("texture")) {
         texture_filename = vm["texture"].as<std::string>();
-    } else if (vm.count("radius")) {
+    } 
+    if (vm.count("radius")) {
         radius_level = vm["radius"].as<double>();
-    } else if (vm.count("width")) {
+    } 
+    if (vm.count("width")) {
         width = vm["width"].as<int>();
-    } else if (vm.count("height")) {
+    } 
+    if (vm.count("height")) {
         height = vm["height"].as<int>();
     }
 
     Plotter plotter(input_filename, texture_filename, width, height, radius_level);
+    plotter.Generate();
+    plotter.Savepng("result.png");
 }
