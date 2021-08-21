@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 06:47:20
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-21 23:03:33
+ * @LastEditTime : 2021-08-21 23:06:27
  * @Description  : file content
  */
 #include "plotter.h"
@@ -167,6 +167,7 @@ void Plotter::Generate() {
         //*         image_buffer[sub_y * width + sub_x] = current_color;
         //*     }
         //* }
+        
         int sub_radius = int_radius;
         for (sub_radius = int_radius; sub_radius >= 0; --sub_radius) {
             int sub_x = 0;

@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 02:33:23
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-21 23:02:25
+ * @LastEditTime : 2021-08-21 23:08:14
  * @Description  : file content
  */
 #include "common.h"
@@ -19,13 +19,15 @@ int main(int argc, char **argv) {
         ("texture,t", po::value<std::string>()->default_value(""), "Texture file")     //
         ("radius,r", po::value<double>()->default_value(10), "Radius Level")           //
         ("width,w", po::value<int>()->default_value(1600), "Picture width")            //
-        ("height,h", po::value<int>()->default_value(900), "Picture height");
+        ("height,h", po::value<int>()->default_value(900), "Picture height")           //
+        ("output,o", po::value<std::string>()->default_value("result.png"), "Output file");
 
     po::variables_map vm;
     store(parse_command_line(argc, argv, desc), vm);
     notify(vm);
 
     std::string input_filename;
+    std::string output_filename;
     std::string texture_filename;
     double radius_level = 10;
     int width = 1600;
@@ -49,8 +51,11 @@ int main(int argc, char **argv) {
     if (vm.count("height")) {
         height = vm["height"].as<int>();
     }
+    if (vm.count("output")) {
+        output_filename = vm["output"].as<std::string>();
+    }
 
     Plotter plotter(input_filename, texture_filename, width, height, radius_level);
     plotter.Generate();
-    plotter.Savepng("result.png");
+    plotter.Savepng(output_filename);
 }
