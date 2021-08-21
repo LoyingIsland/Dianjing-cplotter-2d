@@ -2,7 +2,7 @@
  * @Author       : Chivier Humber
  * @Date         : 2021-08-19 02:33:23
  * @LastEditors  : Chivier Humber
- * @LastEditTime : 2021-08-21 23:08:14
+ * @LastEditTime : 2021-08-21 23:09:01
  * @Description  : file content
  */
 #include "common.h"
@@ -57,5 +57,5 @@ int main(int argc, char **argv) {
 
     Plotter plotter(input_filename, texture_filename, width, height, radius_level);
     plotter.Generate();
-    plotter.Savepng(output_filename);
+    plotter.Savepng(output_filename.c_str());
 }
