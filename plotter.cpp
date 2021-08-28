@@ -74,8 +74,8 @@ Plotter::Plotter(std::string __filename, std::string __texture, int __width, int
         }
     } else {
         std::ifstream texture_file(__texture);
-        // TODO : to be done
         // TODO : generate the texture from texture file
+        
     }
 
     // debug texture
@@ -144,29 +144,6 @@ void Plotter::Generate() {
         int y = (int)((particle_item.y - begin_y_cord) / (end_y_cord - begin_y_cord) * (width - 2 * radius)) + int_radius;
 
         auto current_texture = texture_map[particle_item.tp];
-
-        // TODO: make this part more efficient with the help of Bresenham algorithm
-        // Old Version
-        //* for (int sub_x = x - int_radius; sub_x <= x + int_radius; ++sub_x) {
-        //*     if (sub_x < 0 || sub_x >= width) {
-        //*         continue;
-        //*     }
-        //*     int delta_x = abs(x - sub_x);
-        //*     int delta_y = sqrt(int_radius * int_radius - delta_x * delta_x);
-        //*     int up = std::max(y - delta_y, 0);
-        //*     int down = std::min(y + delta_y, height - 1);
-        //* 
-        //*     for (int sub_y = up; sub_y <= down; ++sub_y) {
-        //*         // Get current color
-        //*         color_tp current_color;
-        //*         if (current_texture->type() == 1) {
-        //*             current_color = current_texture->get();
-        //*         } else {
-        //*             current_color = current_texture->get(sqrt((sub_x - x) * (sub_x - x) + (sub_y - y) * (sub_y - y)) / radius);
-        //*         }
-        //*         image_buffer[sub_y * width + sub_x] = current_color;
-        //*     }
-        //* }
         
         int sub_radius = int_radius;
         for (sub_radius = int_radius; sub_radius >= 0; --sub_radius) {

@@ -124,6 +124,7 @@ class radius_texture_tp : public texture_tp {
     }
 };
 
+
 class Plotter {
     private:
     // TODO: add options for the program
